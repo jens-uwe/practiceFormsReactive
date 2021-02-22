@@ -23,10 +23,8 @@ export class ScaleLabelDirective implements OnInit {
   }
 
   scaleLabel(input: boolean): void {
-    console.log(input);
     const typ: string = this.formInput.nodeName;
     if (input && (typ=='INPUT' || typ=='SELECT')) {
-      console.log((this.formInput as HTMLInputElement).value);
       if ((this.formInput as HTMLInputElement).value=='') {
         this.label.classList.add('like-placeholder');
       }
