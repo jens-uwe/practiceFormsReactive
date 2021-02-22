@@ -1,3 +1,40 @@
 .container {
   margin-top: 30px;
 }
+
+.scaleLabel {
+  margin-top: 2em;
+}
+
+.scaleLabel label {
+  position: absolute;
+  padding: 0 .5em;
+  font-size: .8em;
+  top: -1.4em;
+  left: .5em;
+  transition: all .3s ease; 
+}
+
+.scaleLabel label.like-placeholder {
+  font-size: 1em;
+  top: .45em;
+  left: 1em;
+}
+
+form > div > .ng-valid {
+  border: 1px solid rgb(3, 153, 3);
+  border-left: 5px solid rgb(3, 153, 3);
+  border-right: 5px solid rgb(3, 153, 3);
+}
+
+form > div > .ng-invalid {
+  border: 1px solid red;
+  border-left: 5px solid red;
+  border-right: 5px solid red;
+}
+
+form > div > .ng-pending {
+  border: 1px solid rgb(201, 187, 3);
+  border-left: 5px solid rgb(201, 187, 3);
+  border-right: 5px solid rgb(201, 187, 3);
+}

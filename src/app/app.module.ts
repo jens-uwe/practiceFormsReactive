@@ -4,10 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
+import { DivViewDirective } from './div-view.directive';
+import { ScaleLabelDirective } from './scale-label.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DivViewDirective,
+    ScaleLabelDirective
   ],
   imports: [
     BrowserModule,

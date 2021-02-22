@@ -1,9 +1,68 @@
-<div class="container">
+<div class="container" directiveDivView='{"backgroundColor":"lightblue","title":"myForm"}'>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form >
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        
+        <div directiveScaleLabel>
+          <label for="project">project name</label>
+          <input 
+            type="text" 
+            name="project" 
+            id="project" 
+            class="form-control" 
+            formControlName="project"
+          >
+        </div>  
+
+        <div directiveScaleLabel>
+          <label for="email">contact mail</label>
+          <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            class="form-control" 
+            formControlName="email"
+          >
+        </div>
+
+        <div directiveScaleLabel>
+          <label for="status">project status</label>
+          <select 
+            name="status" 
+            id="status" 
+            class="form-control" 
+            formControlName="status"
+          >
+            <option *ngFor="let status of statusValues" [value]="status">{{ status }}</option>
+          </select>
+        </div>
+        <hr>
+  
+        <button type="submit" class="btn btn-primary" [ngClass]="{'disabled': myForm.invalid || myForm.pending}">Submit</button>
         
       </form>
     </div>
   </div>
 </div>
+
+<div class="container" directiveDivView='{"backgroundColor":"lightcoral","title":"Error!"}' *ngIf="myForm.invalid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <p><strong>This form can't be submitted!</strong></p>
+      <hr>
+      <div *ngFor="let message of errorMessages">
+        <p *ngIf="errorMessage(message.name, message.errorKey)">{{ message.message }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" directiveDivView='{"backgroundColor":"rgb(201, 187, 3)","title":"Please wait!"}' *ngIf="myForm.pending">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <p><strong>The project name will be checked!</strong></p>
+      <hr>
+    </div>
+  </div>
+</div>
+
